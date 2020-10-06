@@ -14,7 +14,7 @@ module.exports = function leafletImage(map, callback) {
 
     // layers are drawn in the same order as they are composed in the DOM:
     // tiles, paths, and then markers
-    map.eachLayer(drawTileLayer);
+    // map.eachLayer(drawTileLayer);
     if (map._pathRoot) layerQueue.defer(handlePathRoot, map._pathRoot);
     map.eachLayer(drawMarkerLayer);
     layerQueue.awaitAll(layersDone);
@@ -83,7 +83,7 @@ module.exports = function leafletImage(map, callback) {
 
         tiles.forEach(function(tilePoint) {
             var originalTilePoint = tilePoint.clone();
-            debugger;
+
             layer._adjustTilePoint(tilePoint);
 
             var tilePos = layer._getTilePos(originalTilePoint)
